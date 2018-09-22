@@ -12,6 +12,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+import org.usfirst.frc.team3255.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3255.robot.subsystems.Kicker;
 
 /**
@@ -23,7 +25,8 @@ import org.usfirst.frc.team3255.robot.subsystems.Kicker;
  */
 public class Robot extends TimedRobot {
 	public static Kicker kicker = new Kicker();
-	public static OI m_oi;
+	public static Drivetrain drivetrain = new Drivetrain();
+	public static OI oi;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -34,7 +37,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-		m_oi = new OI();
+		oi = new OI();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 	}
